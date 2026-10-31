@@ -13,7 +13,7 @@ class Flatroom < Formula
     contents = prefix/"Flatroom.app/Contents"
     (contents/"MacOS").install ".build/release/Flatroom"
     contents.install "Resources/Flatroom-Info.plist" => "Info.plist"
-    # Signs with a "Flatroom Dev" certificate if you have one (keeps permissions across updates), else ad-hoc.
+    # Homebrew's sandbox hides the login keychain, so this signs ad-hoc; caveats explain how to re-sign.
     system "scripts/sign.sh", prefix/"Flatroom.app"
   end
 
@@ -23,6 +23,11 @@ class Flatroom < Formula
         mkdir -p ~/Applications
         ln -sf #{opt_prefix}/Flatroom.app ~/Applications/
         open ~/Applications/Flatroom.app
+
+      Homebrew builds can't reach your keychain, so Flatroom is signed ad-hoc and macOS asks
+      for its permissions again after every upgrade. If you made a "Flatroom Dev" code-signing
+      certificate (see the README), sign with it after each install or upgrade to keep them:
+        codesign --force --sign "Flatroom Dev" #{opt_prefix}/Flatroom.app
 
       Then make or import a filter: https://github.com/taguirrer/flatroom#make-a-filter
     EOS
