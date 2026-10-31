@@ -20,6 +20,7 @@ class Flatroom < Formula
   def caveats
     <<~EOS
       Link the app into your Applications folder and open it:
+        mkdir -p ~/Applications
         ln -sf #{opt_prefix}/Flatroom.app ~/Applications/
         open ~/Applications/Flatroom.app
 
