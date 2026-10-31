@@ -1,8 +1,8 @@
 class Flatroom < Formula
   desc "System-wide room correction for macOS: FIR convolution, no virtual driver"
   homepage "https://github.com/taguirrer/flatroom"
-  url "https://github.com/taguirrer/flatroom/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "acae00b9f8d384cbf2571f06e3f66f74862dc4a29dbdf8e71a34d998ae1c5010"
+  url "https://github.com/taguirrer/flatroom/archive/refs/tags/v0.1.1.tar.gz"
+  sha256 "d0252eb474beee3b78a359b421c0dfbf35c3f70277ef438a8eaec1de69f0467c"
   license "GPL-3.0-only"
   head "https://github.com/taguirrer/flatroom.git", branch: "main"
 
